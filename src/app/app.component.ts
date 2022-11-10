@@ -1,7 +1,7 @@
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Endereco } from './model/Endereco';
 import { ConsultaCEPService } from './services/consulta-cep.service';
-import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'ConsultaCEP';
   formCEP!: FormGroup;
   endereco!: Endereco;
+  fontsize = 16;
 
   constructor(
     private consultaCEP: ConsultaCEPService,
@@ -41,5 +42,30 @@ export class AppComponent {
         uf: endereco.uf,
       });
     });
+  }
+
+  fontIncrease(): void {
+    // font increment
+    this.fontsize++;
+
+    let html: HTMLElement = <HTMLElement>(
+      document.getElementsByTagName('html')[0]
+    );
+    if (html != null) {
+      html.style.fontSize = `${this.fontsize}px`;
+      console.log(html.style.fontSize);
+    }
+  }
+
+  fontDecrease(): void {
+    this.fontsize--;
+
+    let html: HTMLElement = <HTMLElement>(
+      document.getElementsByTagName('html')[0]
+    );
+    if (html != null) {
+      html.style.fontSize = `${this.fontsize}px`;
+      console.log(html.style.fontSize);
+    }
   }
 }

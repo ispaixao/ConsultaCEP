@@ -1,59 +1,78 @@
-<h4 class="text-center">Consulta CEP</h4>
-
-
-<form [formGroup]="formCEP" class="form-group">
-  <div class="text-center offset-4 col-4">
-    <label for="cep">CEP</label>
-    <input
-      type="text"
-      id="cep"
-      class="form-control"
-      formControlName="cep"
-      maxlength="8"
-    />
-    <button class="btn btn-primary mt-4" type="submit" (click)="getEndereco()">Pesquisar</button>
+<header class="container-fluid pt-2">
+  <div class="row">
+    <div class="offset-4 col-4">
+      <h4 class="text-center">Consulta CEP</h4>
+    </div>
+    <div class="card offset-2 col-2 text-center">
+      <p class="card-title">Acessibilidade:</p>
+      <div class="card-body d-flex justify-content-around">
+        <a class="mr-2" (click)="fontDecrease()">
+          <mat-icon>text_decrease</mat-icon>
+        </a>
+        <a class="mr-2" (click)="fontIncrease()">
+          <mat-icon>text_increase</mat-icon>
+        </a>
+      </div>
+    </div>
   </div>
+</header>
+<div class="container-fluid">
+  <form [formGroup]="formCEP" class="form-group">
+    <div class="text-center offset-4 col-4">
+      <label for="cep">CEP</label>
+      <input
+        type="text"
+        id="cep"
+        class="form-control"
+        formControlName="cep"
+        maxlength="8"
+      />
+      <button
+        class="btn btn-primary mt-4"
+        type="submit"
+        (click)="getEndereco()"
+      >
+        Pesquisar
+      </button>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <label for="logradouro">Logradouro</label>
+        <input
+          type="text"
+          id="logradouro"
+          class="form-control"
+          formControlName="logradouro"
+          readonly
+        />
 
-<div class="row">
-  <div class="col-12">
-    <label for="logradouro">Logradouro</label>
-    <input
-      type="text"
-      id="logradouro"
-      class="form-control"
-      formControlName="logradouro"
-      readonly
-    />
+        <label for="Bairro">Bairro</label>
+        <input
+          type="text"
+          id="Bairro"
+          class="form-control"
+          formControlName="bairro"
+          readonly
+        />
 
+        <label for="Cidade">Cidade</label>
+        <input
+          type="text"
+          id="Cidade"
+          class="form-control"
+          formControlName="cidade"
+          readonly
+        />
 
-
-    <label for="Bairro">Bairro</label>
-    <input
-      type="text"
-      id="Bairro"
-      class="form-control"
-      formControlName="bairro"
-      readonly
-    />
-
-    <label for="Cidade">Cidade</label>
-    <input
-      type="text"
-      id="Cidade"
-      class="form-control"
-      formControlName="cidade"
-      readonly
-    />
-
-    <label for="UF">UF</label>
-    <input
-      type="text"
-      id="Cidade"
-      class="form-control"
-      formControlName="uf"
-      readonly
-    />
-  </div>
+        <label for="UF">UF</label>
+        <input
+          type="text"
+          id="Cidade"
+          class="form-control"
+          formControlName="uf"
+          readonly
+        />
+      </div>
+    </div>
+  </form>
 </div>
-</form>
-
